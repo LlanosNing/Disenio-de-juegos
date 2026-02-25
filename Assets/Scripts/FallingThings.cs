@@ -7,10 +7,11 @@ public class FallingThings : MonoBehaviour
     public float spawnRadius = 6f;
     private Vector3 spawnOrigin = Vector3.zero;
     public List<GameObject> thingsPrefabs;
+    public Vector2 SpawnTimeRange = Vector2.one;
 
     void Start()
     {
-        spawnOrigin = transform.position;
+       // spawnOrigin = transform.position;
         StartCoroutine(SpawnCO());
     }
     void SpawnThing()
@@ -30,7 +31,7 @@ public class FallingThings : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(Random.Range(SpawnTimeRange.x, SpawnTimeRange.y));
             SpawnThing();
         }
     }

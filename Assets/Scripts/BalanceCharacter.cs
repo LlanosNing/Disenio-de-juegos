@@ -66,18 +66,20 @@ public class BalanceCharacter : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //si detecta que choca contra algo que lo mata, se muere
-        if(collision.collider.CompareTag("Kill"))
+        if (collision.collider.CompareTag("Kill"))
         {
             Die();
         }
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
         //si detecta una seta, SE LA COME JUAJUAJUAs
-        if (collision.collider.CompareTag("Mushroom"))
+        if (other.CompareTag("Mushroom"))
         {
             Grow();
             //destruir la setita
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
         }
     }
-
 }
