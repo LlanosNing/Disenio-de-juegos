@@ -43,7 +43,7 @@ public class BalanceCharacter : MonoBehaviour
         this.enabled = false;
     }
 
-    void EnableRagdoll(bool enable)
+    public void EnableRagdoll(bool enable)
     {
         //activar el animator cuando se desactiva el ragdoll y viceversa
         anim.enabled = !enable;
